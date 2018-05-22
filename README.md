@@ -1,5 +1,11 @@
 # Globally and Locally Consistent Image Completion (GLCIC)
 
+**Note: Something new!**
+- support official model initialize.
+- change inputsize from 128 to 256 to match the official code.
+- change input normaize strategy to match the official code.
+- NEED TODO: fix D->G backward bug!
+
 This is an implementation of the image completion model proposed in the paper
 ([Globally and Locally Consistent Image Completion](
 http://hi.cs.waseda.ac.jp/%7Eiizuka/projects/completion/data/completion_sig2017.pdf))
