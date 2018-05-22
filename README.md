@@ -1,7 +1,7 @@
 # Globally and Locally Consistent Image Completion (GLCIC)
 
 **Note: Something new!**
-- support official model initialize.
+- support official model initialize. (see model path in 'src/network.py')
 - change inputsize from 128 to 256 to match the official code.
 - change input normaize strategy to match the official code.
 - NEED TODO: fix D->G backward bug!
