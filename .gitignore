@@ -1,1 +1,4 @@
 __pycache__
+src/output*
+src/backup*
+src/.ipynb_checkpoints/

@@ -3,26 +3,22 @@ import os
 import cv2
 import numpy as np
 
-ratio = 0.95
-image_size = 128
+image_size = 256
 
-x = []
-paths = glob.glob('./images/*')
-for path in paths:
-    img = cv2.imread(path)
-    img = cv2.resize(img, (image_size, image_size))
-    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-    x.append(img)
+x_split = [[],[]]
+for i, imgdir in enumerate(['/home/storage/wuxian/ATR/train/image/*','/home/storage/wuxian/ATR/test/image/*']):
+    paths = glob.glob(imgdir)
+    for path in paths:
+        img = cv2.imread(path)
+        img = cv2.resize(img, (image_size, image_size))
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        x_split[i].append(img)
 
-x = np.array(x, dtype=np.uint8)
-np.random.shuffle(x)
-
-p = int(ratio * len(x))
-x_train = x[:p]
-x_test = x[p:]
+    x_split[i] = np.array(x_split[i], dtype=np.uint8)
 
 if not os.path.exists('./npy'):
     os.mkdir('./npy')
-np.save('./npy/x_train.npy', x_train)
-np.save('./npy/x_test.npy', x_test)
+print (x_split[0].shape, x_split[1].shape)
+np.save('./npy/x_train.npy', x_split[0])
+np.save('./npy/x_test.npy', x_split[1])
 
